@@ -1,20 +1,37 @@
-# PatternMatching
+MATCH operator not ASSIGNMENT… we say it “binds” values
 
-**TODO: Add description**
+like a math problem
 
-## Installation
+```elixir
+x = 1
+1 = x
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+1 = 2 # => ** (MatchError) no match of right hand side value: 2
 
-  1. Add pattern_matching to your list of dependencies in `mix.exs`:
+# rebind
+x = 2
 
-        def deps do
-          [{:pattern_matching, "~> 0.0.1"}]
-        end
+^x = 3 # => ** (MatchError) no match of right hand side value: 2
 
-  2. Ensure pattern_matching is started before your application:
+x + b = 5 # gotta move the things we know to the right
+b = 5 - x
 
-        def application do
-          [applications: [:pattern_matching]]
-        end
+list = [1, 2, 3]
 
+[1, middle, 3] = list
+
+[1 | tail] = list
+tail # => [2,3]
+
+{:ok, value} = {:ok, "Successful!"}
+
+"bo" <> last_letter = "boo"
+last_letter # => "o"
+
+length([1,2,3]) = 3 # ** (CompileError) iex:9: cannot invoke remote function :erlang.length/1 inside match
+
+_ = "whatever"
+_bob = "whatever"
+_bob # the underscored variable "_bob" is used after being set. A leading underscore indicates that the value of the variable should be ignored. If this is intended please rename the variable to remove the underscore
+
+```
