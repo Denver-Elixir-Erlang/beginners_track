@@ -10,7 +10,7 @@ Process.info(looper)
 
 # we need to add our process
 Process.register(looper, :looper)
-rocess.registered
+Process.registered
 # we should see our process now
 
 Process.exit(looper, :kill)

@@ -1,6 +1,6 @@
 defmodule Processes.Loopy do
   def loop do
-    loop
+    loop()
   end
   # receive do
   #   {:hi, sender} ->
